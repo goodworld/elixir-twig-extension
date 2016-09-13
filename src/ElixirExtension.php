@@ -21,7 +21,7 @@ class ElixirExtension extends \Twig_Extension
     protected $manifestName;
     protected $manifest;
 
-    public function __construct($publicDir, $buildDir = 'build', $manifestName = 'rev-manifest.json')
+    public function __construct($publicDir = '../public', $buildDir = 'build', $manifestName = 'rev-manifest.json')
     {
         $this->publicDir = rtrim($publicDir, '/');
         $this->buildDir = trim($buildDir, '/');
@@ -31,7 +31,7 @@ class ElixirExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('elixir', [$this, 'getVersionedFilePath']),
+            new \Twig_SimpleFunction('elixir', [$this, 'getVersionedFilePath'])
         ];
     }
 
